@@ -34,7 +34,7 @@ namespace MemberMicroservice.Repository
                 clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
                 using (HttpClient client = new HttpClient(clientHandler))
                 {
-                    client.BaseAddress = new Uri("https://localhost:44387/api/");
+                    client.BaseAddress = new Uri("http://52.224.137.238/api/");
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                     HttpResponseMessage response = new HttpResponseMessage();
                     response = client.GetAsync("Claims/getClaimStatus?claimID=" + claimID + "&policyID=" + policyID).Result;
@@ -56,7 +56,7 @@ namespace MemberMicroservice.Repository
                 clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
                 using (HttpClient client = new HttpClient(clientHandler))
                 {
-                    client.BaseAddress = new Uri("https://localhost:44387/api/");
+                    client.BaseAddress = new Uri("http://52.224.137.238/api/");
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                     HttpResponseMessage response = new HttpResponseMessage();
                     StringContent content = new StringContent(JsonConvert.SerializeObject(null), Encoding.UTF8, "application/json");
